@@ -4,7 +4,7 @@ import { ShowCarrito } from './showCarrito/ShowCarrito'
 import './carrito.css'
 
 const Carrito = ()=>{
-    const {products, carrito, setCarrito, setShowCarrito, showCarrito} = useContext(ProductsContext)
+    const {products, carrito, setCarrito, setShowCarrito, showCarrito, setCounter0, setCounter1, setCounter2, setCounter3} = useContext(ProductsContext)
     let toggleClass = showCarrito ? 'header__ul-carrito show' : 'header__ul-carrito'
     function showProducts(){
         if(showCarrito == false  && carrito.length > 0){
@@ -15,6 +15,11 @@ const Carrito = ()=>{
     }
     function cleanCarrito(){
         setCarrito([])
+        setCounter0(0)
+        setCounter1(0)
+        setCounter2(0)
+        setCounter3(0)
+        
     }
     return(
         <header className="header">
