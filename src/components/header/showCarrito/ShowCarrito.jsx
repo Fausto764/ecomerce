@@ -5,6 +5,10 @@ import '../carrito.css'
 const ShowCarrito = ()=>{
     let {carrito, showCarrito, products, setCounter0, setCounter1, setCounter2, setCounter3} = useContext(ProductsContext)
     if(carrito.length > 0 && showCarrito){
+        function calcPrice(){
+            return products[0].price * products[0].counter + products[1].price * products[1].counter + products[2].price * products[2].counter + products[3].price * products[3].counter 
+        }
+
         function counterProduct(index, element){
             if(index === 0){ return  element.name + '  Cant: ' + element.counter  }
             else if(index === 1){ return  element.name + '  Cant: ' + element.counter  }
@@ -32,7 +36,7 @@ const ShowCarrito = ()=>{
                     return(
                         <li className='header__li' key={index}>{counterProduct(index, element)}</li> 
                     ) })}
-                    <li className='header__li-total'>Total : $ { products[0].price * products[0].counter + products[1].price * products[0].counter + products[2].price * products[0].counter + products[3].price * products[0].counter }</li>
+                    <li className='header__li-total'>Total : $ {calcPrice() }</li>
                     </>
                 )
                    
